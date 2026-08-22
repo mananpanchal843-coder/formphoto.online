@@ -1,5 +1,5 @@
 import React from 'react';
-import SEOHead from '../components/SEOHead';
+import SEOHead from './SEOHead';
 import './LegalPages.css';
 
 export default function Terms() {
