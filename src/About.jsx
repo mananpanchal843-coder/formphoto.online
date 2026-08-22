@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SEOHead from '../components/SEOHead';
+import SEOHead from './SEOHead';
 import './LegalPages.css';
 
 export default function About() {
@@ -31,30 +31,17 @@ export default function About() {
 
       <h2>What we offer</h2>
       <ul>
-        <li>
-          <Link to="/photo-resizer">Photo Resizer</Link> – exact pixel size for UPSC, SSC, IBPS,
-          NEET, JEE, Passport and more
-        </li>
-        <li>
-          <Link to="/signature-resizer">Signature Resizer</Link> – bank and exam signature formats
-        </li>
-        <li>
-          <Link to="/compress">Compress Photo</Link> – hit exact KB limits (20KB, 50KB, 100KB…)
-        </li>
-        <li>
-          <Link to="/background-remover">Background Remover</Link> – clean white or transparent
-          backgrounds
-        </li>
-        <li>
-          <Link to="/image-to-pdf">Image to PDF</Link> and <Link to="/pdf-compress">PDF Compress</Link>
-        </li>
+        <li><Link to="/photo-resizer">Photo Resizer</Link> – exact pixel size for UPSC, SSC, IBPS, NEET, JEE, Passport and more</li>
+        <li><Link to="/signature-resizer">Signature Resizer</Link> – bank and exam signature formats</li>
+        <li><Link to="/compress">Compress Photo</Link> – hit exact KB limits (20KB, 50KB, 100KB…)</li>
+        <li><Link to="/background-remover">Background Remover</Link> – clean white or transparent backgrounds</li>
+        <li><Link to="/image-to-pdf">Image to PDF</Link> and <Link to="/pdf-compress">PDF Compress</Link></li>
       </ul>
 
       <h2>Why privacy matters</h2>
       <p>
         Application photos are sensitive. Unlike many online tools, FormPhoto processes everything
-        locally in your browser. We never see or store your images. Read our{' '}
-        <Link to="/privacy">Privacy Policy</Link> for full details.
+        locally in your browser. We never see or store your images. Read our <Link to="/privacy">Privacy Policy</Link> for full details.
       </p>
 
       <h2>Who it’s for</h2>
@@ -67,9 +54,7 @@ export default function About() {
       </ul>
 
       <h2>Contact</h2>
-      <p>
-        Feedback and suggestions are welcome on our <Link to="/contact">Contact page</Link>.
-      </p>
+      <p>Feedback and suggestions are welcome on our <Link to="/contact">Contact page</Link>.</p>
     </div>
   );
 }
