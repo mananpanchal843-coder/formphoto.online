@@ -1,0 +1,68 @@
+/* Mobile responsive styles for FormPhoto.online */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+canvas,
+video {
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  .container,
+  .content,
+  .page-container,
+  .tool-container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  h1 {
+    font-size: clamp(1.7rem, 7vw, 2.4rem);
+  }
+
+  h2 {
+    font-size: clamp(1.35rem, 5.5vw, 1.9rem);
+  }
+
+  button {
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container,
+  .content,
+  .page-container,
+  .tool-container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+} 
