@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useTheme } from '../context/ThemeContext';
+import { useTheme } from './ThemeContext';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -10,33 +10,21 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
 
-  // Prevent body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
   }, [mobileMenuOpen]);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
-
   const navLinks = [
     { name: 'Photo Resizer', path: '/photo-resizer' },
     { name: 'Signature Resizer', path: '/signature-resizer' },
@@ -51,42 +39,16 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-          FormPhoto <span className="logo-icon">📸</span>
-        </Link>
-        
+        <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>FormPhoto <span className="logo-icon">📸</span></Link>
         <div className={`navbar-menu ${mobileMenuOpen ? 'active' : ''}`}>
           {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-              onClick={closeMobileMenu}
-            >
-              {link.name}
-            </Link>
+            <Link key={link.name} to={link.path} className={`nav-link ${location.pathname === link.path ? 'active' : ''}`} onClick={closeMobileMenu}>{link.name}</Link>
           ))}
-          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">
-            {theme === 'dark' ? '☀️' : '🌙'}
-          </button>
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle Theme">{theme === 'dark' ? '☀️' : '🌙'}</button>
         </div>
-
-        <button 
-          className="mobile-menu-icon" 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle mobile menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          {mobileMenuOpen ? '✕' : '☰'}
-        </button>
+        <button className="mobile-menu-icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle mobile menu" aria-expanded={mobileMenuOpen}>{mobileMenuOpen ? '✕' : '☰'}</button>
       </div>
-
-      {/* Overlay for mobile */}
-      <div 
-        className={`mobile-menu-overlay ${mobileMenuOpen ? 'active' : ''}`}
-        onClick={closeMobileMenu}
-        aria-hidden="true"
-      />
+      <div className={`mobile-menu-overlay ${mobileMenuOpen ? 'active' : ''}`} onClick={closeMobileMenu} aria-hidden="true" />
     </nav>
   );
 };
