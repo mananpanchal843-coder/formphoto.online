@@ -1,23 +1,23 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import PhotoResizer from './pages/PhotoResizer';
-import SignatureResizer from './pages/SignatureResizer';
-import CompressPhoto from './pages/CompressPhoto';
-import BackgroundRemover from './pages/BackgroundRemover';
-import ImageToPdf from './pages/ImageToPdf';
-import PdfCompress from './pages/PdfCompress';
-import Privacy from './pages/Privacy';
-import Terms from './pages/Terms';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import ExamRequirements from './pages/ExamRequirements';
-import ApplicationChecker from './pages/checker/ApplicationChecker';
-import ExamLandingPage from './pages/ExamLandingPage';
-import GuidePage from './pages/GuidePage';
-import GuidesIndex from './pages/GuidesIndex';
+import Navbar from './Navbar';
+import Footer from './Footer';
+import Home from './Home';
+import PhotoResizer from './PhotoResizer';
+import SignatureResizer from './SignatureResizer';
+import CompressPhoto from './CompressPhoto';
+import BackgroundRemover from './BackgroundRemover';
+import ImageToPdf from './ImageToPdf';
+import PdfCompress from './PdfCompress';
+import Privacy from './Privacy';
+import Terms from './Terms';
+import About from './About';
+import Contact from './Contact';
+import ExamRequirements from './ExamRequirements';
+import ApplicationChecker from './ApplicationChecker';
+import ExamLandingPage from './ExamLandingPage';
+import GuidePage from './GuidePage';
+import GuidesIndex from './GuidesIndex';
 import './App.css';
 
 function App() {
@@ -42,14 +42,12 @@ function App() {
           <Route path="/exam-requirements" element={<ExamRequirements />} />
           <Route path="/application-checker" element={<ApplicationChecker />} />
           <Route path="/application/:appId" element={<ApplicationChecker />} />
-          
           <Route path="/ssc-cgl-photo-signature-resizer" element={<ExamLandingPage />} />
           <Route path="/upsc-cse-photo-signature-size" element={<ExamLandingPage />} />
           <Route path="/neet-photo-resizer-2026" element={<ExamLandingPage />} />
           <Route path="/ibps-po-clerk-photo-signature" element={<ExamLandingPage />} />
           <Route path="/rrb-ntpc-group-d-photo-resizer" element={<ExamLandingPage />} />
           <Route path="/jee-main-photo-signature" element={<ExamLandingPage />} />
-
           <Route path="/guides" element={<GuidesIndex />} />
           <Route path="/ssc-cgl-photo-signature-size-complete-guide-2026" element={<GuidePage />} />
           <Route path="/why-exam-photo-gets-rejected-and-how-to-fix" element={<GuidePage />} />
